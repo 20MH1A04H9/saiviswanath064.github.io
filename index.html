@@ -1,231 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VISWA | Cyber Security Engineer</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
-}
-
-body{
-    background:#0d1117;
-    color:#fff;
-    overflow-x:hidden;
-}
-
-header{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:linear-gradient(135deg,#0d1117,#161b22);
-}
-
-.glow{
-    color:#00ff88;
-    text-shadow:0 0 10px #00ff88,
-                0 0 20px #00ff88,
-                0 0 40px #00ff88;
-}
-
-h1{
-    font-size:4rem;
-    margin-bottom:10px;
-}
-
-h2{
-    color:#58a6ff;
-    margin-bottom:20px;
-}
-
-p{
-    max-width:700px;
-    line-height:1.8;
-    color:#c9d1d9;
-}
-
-.btn{
-    margin-top:30px;
-    padding:12px 30px;
-    border:2px solid #00ff88;
-    color:#00ff88;
-    text-decoration:none;
-    border-radius:30px;
-    transition:.3s;
-}
-
-.btn:hover{
-    background:#00ff88;
-    color:#000;
-}
-
-section{
-    padding:80px 10%;
-}
-
-.section-title{
-    text-align:center;
-    margin-bottom:50px;
-    color:#00ff88;
-    font-size:2rem;
-}
-
-.cards{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:25px;
-}
-
-.card{
-    background:#161b22;
-    padding:25px;
-    border-radius:15px;
-    border:1px solid #30363d;
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-8px);
-    box-shadow:0 0 20px rgba(0,255,136,.3);
-}
-
-.card h3{
-    color:#58a6ff;
-    margin-bottom:15px;
-}
-
-footer{
-    text-align:center;
-    padding:30px;
-    background:#161b22;
-    color:#8b949e;
-}
-
-.matrix{
-    position:fixed;
-    width:100%;
-    height:100%;
-    z-index:-1;
-    opacity:.08;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VISWA // SOC ANALYST</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&family=VT323&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<canvas class="matrix"></canvas>
+  <!-- Scanline overlay -->
+  <div class="scanlines"></div>
 
-<header>
-    <h1 class="glow">VISWA</h1>
-    <h2>Cyber Security Engineer</h2>
-    <p>
-        Passionate about Cyber Security, SIEM, Wazuh, Threat Detection,
-        Incident Response, OpenTelemetry, Prometheus, Grafana, and Cloud Security.
-        Building secure infrastructures and protecting digital assets.
-    </p>
-    <a href="#skills" class="btn">Explore</a>
-</header>
+  <!-- Matrix canvas background -->
+  <canvas class="matrix"></canvas>
 
-<section id="skills">
-    <h2 class="section-title">Skills</h2>
+  <!-- Particle network canvas -->
+  <canvas class="particles"></canvas>
 
-    <div class="cards">
-        <div class="card">
-            <h3>Wazuh SIEM</h3>
-            <p>Threat detection, log analysis, compliance monitoring and incident response.</p>
-        </div>
+  <!-- NOISE overlay -->
+  <div class="noise"></div>
 
-        <div class="card">
-            <h3>Cloud Security</h3>
-            <p>AWS monitoring, CloudTrail, CloudWatch and security best practices.</p>
-        </div>
-
-        <div class="card">
-            <h3>OpenTelemetry</h3>
-            <p>Distributed telemetry collection, observability and monitoring.</p>
-        </div>
-
-        <div class="card">
-            <h3>DevSecOps</h3>
-            <p>Secure CI/CD pipelines, automation and infrastructure hardening.</p>
-        </div>
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-logo">
+      <span class="bracket">[</span>
+      <span class="nav-name glitch" data-text="VISWA">VISWA</span>
+      <span class="bracket">]</span>
     </div>
-</section>
-
-<section>
-    <h2 class="section-title">Security Focus Areas</h2>
-
-    <div class="cards">
-        <div class="card">
-            <h3>Threat Hunting</h3>
-            <p>Detecting advanced threats using log analytics and correlation.</p>
-        </div>
-
-        <div class="card">
-            <h3>Incident Response</h3>
-            <p>Rapid investigation, containment and remediation of security incidents.</p>
-        </div>
-
-        <div class="card">
-            <h3>Monitoring</h3>
-            <p>Prometheus, Grafana and centralized observability solutions.</p>
-        </div>
-
-        <div class="card">
-            <h3>Security Automation</h3>
-            <p>Automating detection and response workflows for modern SOC teams.</p>
-        </div>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link">~/home</a></li>
+      <li><a href="#about" class="nav-link">~/about</a></li>
+      <li><a href="#skills" class="nav-link">~/skills</a></li>
+      <li><a href="#projects" class="nav-link">~/projects</a></li>
+      <li><a href="#contact" class="nav-link">~/contact</a></li>
+    </ul>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="status-text">ONLINE</span>
     </div>
-</section>
+  </nav>
 
-<footer>
-    © 2026 VISWA | Cyber Security Portfolio
-</footer>
+  <!-- HERO -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <div class="terminal-window">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">root@VISWA:~$</span>
+        </div>
+        <div class="terminal-body">
+          <div class="terminal-line"><span class="prompt">root@VISWA:~$</span> <span class="cmd" id="cmd1"></span></div>
+          <div class="terminal-line hidden" id="line2"><span class="prompt">></span> <span class="output" id="out2"></span></div>
+          <div class="terminal-line hidden" id="line3"><span class="prompt">></span> <span class="output output-green" id="out3"></span></div>
+          <div class="terminal-line hidden" id="line4"><span class="prompt">></span> <span class="output output-cyan" id="out4"></span></div>
+          <div class="terminal-line hidden" id="line5"><span class="prompt">root@VISWA:~$</span> <span class="cmd" id="cmd5"></span><span class="cursor-blink">█</span></div>
+        </div>
+      </div>
 
-<script>
-const canvas = document.querySelector(".matrix");
-const ctx = canvas.getContext("2d");
+      <div class="hero-title-wrap">
+        <div class="hero-subtitle">// SOC ANALYST & SECURITY ENGINEER</div>
+        <h1 class="hero-title">
+          <span class="glitch" data-text="TATAVOTU">TATAVOTU</span>
+          <br />
+          <span class="glitch hero-lastname" data-text="SAI VISWANADH">SAI VISWANADH</span>
+        </h1>
+        <div class="hero-tagline">
+          <span class="tag-bracket">&lt;</span>
+          <span class="tag-text" id="rotating-tag"></span>
+          <span class="tag-bracket">/&gt;</span>
+        </div>
+      </div>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num" data-target="99">00</div>
+          <div class="stat-label">THREATS DETECTED</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="24">00</div>
+          <div class="stat-label">UPTIME (HRS)</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="7">0</div>
+          <div class="stat-label">INTEGRATIONS</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num" data-target="0">0</div>
+          <div class="stat-label">BREACHES</div>
+        </div>
+      </div>
 
-const chars = "01";
-const fontSize = 14;
-const columns = canvas.width/fontSize;
+      <div class="hero-cta">
+        <a href="#projects" class="btn-primary">
+          <span class="btn-text">ACCESS FILES</span>
+          <span class="btn-scan"></span>
+        </a>
+        <a href="#contact" class="btn-secondary">ESTABLISH LINK</a>
+      </div>
+    </div>
 
-const drops = [];
+    <div class="hero-visual">
+      <div class="hex-grid">
+        <div class="hex active">SIEM</div>
+        <div class="hex">SOC</div>
+        <div class="hex active">WAZUH</div>
+        <div class="hex">OTel</div>
+        <div class="hex active">DFIR</div>
+        <div class="hex">AWS</div>
+        <div class="hex">RBAC</div>
+        <div class="hex active">APM</div>
+        <div class="hex">TH</div>
+      </div>
+      <div class="radar-wrap">
+        <canvas id="radar"></canvas>
+        <div class="radar-label">THREAT RADAR</div>
+      </div>
+    </div>
+  </section>
 
-for(let x=0;x<columns;x++){
-    drops[x]=1;
-}
+  <!-- ABOUT -->
+  <section id="about" class="about section">
+    <div class="section-header">
+      <div class="section-line"></div>
+      <h2 class="section-title"><span class="sec-num">01.</span> ABOUT.SYS</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="card-header">
+          <span class="card-icon">⚡</span>
+          <span class="card-title">WHO AM I</span>
+        </div>
+        <p class="card-text">SOC Analyst based in <span class="highlight">Hyderabad, Telangana</span>. Architect of security infrastructure — Wazuh SIEM deployments, multi-tenant OpenSearch, OTel pipelines, and automated detection workflows.</p>
+        <div class="card-tags">
+          <span class="ctag">Wazuh Admin</span>
+          <span class="ctag">OpenSearch</span>
+          <span class="ctag">SIEM Engineer</span>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="card-header">
+          <span class="card-icon">🔐</span>
+          <span class="card-title">CURRENT OPS</span>
+        </div>
+        <p class="card-text">Running self-hosted Wazuh (server: <span class="highlight">WAZUH</span>) under <span class="highlight">cyberexperts.online</span> — managing Google Workspace audit ingestion, GitHub webhook forwarding, Groq LLaMA 3.3 70B via ML Commons, and GPO-based Windows agent auto-deployment.</p>
+        <div class="card-tags">
+          <span class="ctag">Multi-tenant</span>
+          <span class="ctag">DLS/RBAC</span>
+          <span class="ctag">GeoIP/ASN</span>
+        </div>
+      </div>
+      <div class="about-card">
+        <div class="card-header">
+          <span class="card-icon">🛰️</span>
+          <span class="card-title">MISSION</span>
+        </div>
+        <p class="card-text">Build security infrastructure that actually <span class="highlight">detects threats</span>, not just collects logs. Every integration has a purpose. Every alert has a reason.</p>
+        <div class="card-tags">
+          <span class="ctag">Threat Hunting</span>
+          <span class="ctag">IR Automation</span>
+          <span class="ctag">Zero Breach</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-function draw(){
-    ctx.fillStyle="rgba(13,17,23,0.08)";
-    ctx.fillRect(0,0,canvas.width,canvas.height);
+  <!-- SKILLS -->
+  <section id="skills" class="skills section">
+    <div class="section-header">
+      <div class="section-line"></div>
+      <h2 class="section-title"><span class="sec-num">02.</span> SKILLS.DB</h2>
+      <div class="section-line"></div>
+    </div>
 
-    ctx.fillStyle="#00ff88";
-    ctx.font=fontSize+"px monospace";
+    <div class="skills-grid">
+      <div class="skill-card" data-delay="0">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40"><polygon points="20,2 38,11 38,29 20,38 2,29 2,11" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="50%" y="58%" text-anchor="middle" font-size="10" fill="currentColor">SIEM</text></svg>
+        </div>
+        <h3 class="skill-name">Wazuh SIEM</h3>
+        <p class="skill-desc">Threat detection, log analysis, compliance monitoring and incident response.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width="95"></div></div>
+        <span class="skill-pct">95%</span>
+      </div>
+      <div class="skill-card" data-delay="100">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40"><rect x="4" y="4" width="32" height="32" rx="4" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="50%" y="58%" text-anchor="middle" font-size="8" fill="currentColor">CLOUD</text></svg>
+        </div>
+        <h3 class="skill-name">Cloud Security</h3>
+        <p class="skill-desc">AWS monitoring, CloudTrail, CloudWatch and security best practices.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width="80"></div></div>
+        <span class="skill-pct">80%</span>
+      </div>
+      <div class="skill-card" data-delay="200">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="16" fill="none" stroke="currentColor" stroke-width="1.5"/><line x1="20" y1="4" x2="20" y2="36" stroke="currentColor" stroke-width="1"/><line x1="4" y1="20" x2="36" y2="20" stroke="currentColor" stroke-width="1"/><text x="50%" y="58%" text-anchor="middle" font-size="7" fill="currentColor">OTel</text></svg>
+        </div>
+        <h3 class="skill-name">OpenTelemetry</h3>
+        <p class="skill-desc">Distributed telemetry collection, observability and monitoring.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width="85"></div></div>
+        <span class="skill-pct">85%</span>
+      </div>
+      <div class="skill-card" data-delay="300">
+        <div class="skill-icon">
+          <svg viewBox="0 0 40 40"><path d="M8,8 L32,8 L32,24 L20,32 L8,24 Z" fill="none" stroke="currentColor" stroke-width="1.5"/><text x="50%" y="54%" text-anchor="middle" font-size="7" fill="currentColor">SEC</text></svg>
+        </div>
+        <h3 class="skill-name">DevSecOps</h3>
+        <p class="skill-desc">Secure CI/CD pipelines, automation and infrastructure hardening.</p>
+        <div class="skill-bar"><div class="skill-fill" data-width="78"></div></div>
+        <span class="skill-pct">78%</span>
+      </div>
+    </div>
 
-    for(let i=0;i<drops.length;i++){
-        const text=chars[Math.floor(Math.random()*chars.length)];
-        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+    <div class="focus-title">// SECURITY FOCUS AREAS</div>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <div class="focus-num">01</div>
+        <h3>Threat Hunting</h3>
+        <p>Detecting advanced threats using log analytics and correlation.</p>
+        <div class="focus-pulse"></div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-num">02</div>
+        <h3>Incident Response</h3>
+        <p>Rapid investigation, containment and remediation of security incidents.</p>
+        <div class="focus-pulse"></div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-num">03</div>
+        <h3>Monitoring</h3>
+        <p>Prometheus, Grafana and centralized observability solutions.</p>
+        <div class="focus-pulse"></div>
+      </div>
+      <div class="focus-card">
+        <div class="focus-num">04</div>
+        <h3>Security Automation</h3>
+        <p>Automating detection and response workflows for modern SOC teams.</p>
+        <div class="focus-pulse"></div>
+      </div>
+    </div>
+  </section>
 
-        if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
-            drops[i]=0;
-        }
-        drops[i]++;
-    }
-}
+  <!-- PROJECTS -->
+  <section id="projects" class="projects section">
+    <div class="section-header">
+      <div class="section-line"></div>
+      <h2 class="section-title"><span class="sec-num">03.</span> PROJECTS.LOG</h2>
+      <div class="section-line"></div>
+    </div>
 
-setInterval(draw,35);
-</script>
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <div class="project-badge">FLAGSHIP</div>
+        <div class="project-header">
+          <span class="project-id">#001</span>
+          <div class="project-status online">● DEPLOYED</div>
+        </div>
+        <h3 class="project-name">Wazuh Multi-Tenant SIEM</h3>
+        <p class="project-desc">Full OpenSearch DLS filtering, RBAC, agent group labeling, GeoIP/ASN enrichment across isolated tenant organizations (ISS Technologies, Cyberxperts, CyberAxis).</p>
+        <div class="project-tags">
+          <span>Wazuh</span><span>OpenSearch</span><span>DLS</span><span>RBAC</span><span>GeoIP</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-lang">● YAML/JSON</span>
+          <a href="#" class="project-link">VIEW →</a>
+        </div>
+      </div>
 
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-id">#002</span>
+          <div class="project-status online">● ACTIVE</div>
+        </div>
+        <h3 class="project-name">GPO Agent Auto-Deploy</h3>
+        <p class="project-desc">AD startup script BAT automation for Wazuh Windows agent deployment across OUs with security group filtering and custom ossec.conf injection.</p>
+        <div class="project-tags">
+          <span>GPO</span><span>AD</span><span>BAT</span><span>Windows</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-lang">● PowerShell</span>
+          <a href="#" class="project-link">VIEW →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-id">#003</span>
+          <div class="project-status online">● ACTIVE</div>
+        </div>
+        <h3 class="project-name">OTel APM Pipeline</h3>
+        <p class="project-desc">Data Prepper/OTel/Prometheus APM stack with Windows otelcol-contrib forwarding to Ubuntu OTel Collector and OpenSearch ML Commons integration.</p>
+        <div class="project-tags">
+          <span>OTel</span><span>Prometheus</span><span>Grafana</span><span>APM</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-lang">● YAML</span>
+          <a href="#" class="project-link">VIEW →</a>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-id">#004</span>
+          <div class="project-status warn">● IN PROGRESS</div>
+        </div>
+        <h3 class="project-name">Groq LLaMA SOC AI</h3>
+        <p class="project-desc">Groq LLaMA 3.3 70B via OpenSearch ML Commons for AI-assisted threat analysis and alert correlation inside the SIEM.</p>
+        <div class="project-tags">
+          <span>LLaMA</span><span>ML Commons</span><span>Groq</span><span>AI</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-lang">● Python</span>
+          <a href="#" class="project-link">VIEW →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact section">
+    <div class="section-header">
+      <div class="section-line"></div>
+      <h2 class="section-title"><span class="sec-num">04.</span> CONTACT.SH</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-wrap">
+      <div class="contact-terminal">
+        <div class="terminal-bar">
+          <div class="terminal-dots">
+            <span class="dot dot-red"></span>
+            <span class="dot dot-yellow"></span>
+            <span class="dot dot-green"></span>
+          </div>
+          <span class="terminal-title">ping@viswa</span>
+        </div>
+        <div class="terminal-body contact-body">
+          <p><span class="prompt">$</span> echo "LOCATION"</p>
+          <p class="output">Hyderabad, Telangana, India</p>
+          <p><span class="prompt">$</span> echo "DOMAIN"</p>
+          <p class="output">cyberexperts.online</p>
+          <p><span class="prompt">$</span> echo "HANDLE"</p>
+          <p class="output output-cyan">20MH1A04H9 // HACKER-SPACE</p>
+          <p><span class="prompt">$</span> echo "STATUS"</p>
+          <p class="output output-green">AVAILABLE FOR SECURITY CONSULTING ✓</p>
+          <p><span class="prompt">$</span> <span class="cursor-blink">█</span></p>
+        </div>
+      </div>
+      <div class="contact-links">
+        <a href="https://github.com/20MH1A04H9" target="_blank" class="contact-btn">
+          <span class="contact-icon">⌥</span>
+          <span>GitHub / 20MH1A04H9</span>
+        </a>
+        <a href="https://20mh1a04h9.github.io/saiviswanath064.github.io/" target="_blank" class="contact-btn">
+          <span class="contact-icon">◈</span>
+          <span>Portfolio Site</span>
+        </a>
+        <div class="contact-btn passive">
+          <span class="contact-icon">⊞</span>
+          <span>Hyderabad SOC Lab</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-line"></div>
+    <div class="footer-content">
+      <span class="footer-left">© 2026 VISWA | <span class="highlight">Cyber Security Portfolio</span></span>
+      <span class="footer-mid glitch" data-text="STAY PARANOID">STAY PARANOID</span>
+      <span class="footer-right">root@HACKER-SPACE:~$<span class="cursor-blink">█</span></span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
