@@ -1,9 +1,231 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My GitHub Page</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VISWA | Cyber Security Engineer</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
+}
+
+body{
+    background:#0d1117;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+header{
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:linear-gradient(135deg,#0d1117,#161b22);
+}
+
+.glow{
+    color:#00ff88;
+    text-shadow:0 0 10px #00ff88,
+                0 0 20px #00ff88,
+                0 0 40px #00ff88;
+}
+
+h1{
+    font-size:4rem;
+    margin-bottom:10px;
+}
+
+h2{
+    color:#58a6ff;
+    margin-bottom:20px;
+}
+
+p{
+    max-width:700px;
+    line-height:1.8;
+    color:#c9d1d9;
+}
+
+.btn{
+    margin-top:30px;
+    padding:12px 30px;
+    border:2px solid #00ff88;
+    color:#00ff88;
+    text-decoration:none;
+    border-radius:30px;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#00ff88;
+    color:#000;
+}
+
+section{
+    padding:80px 10%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:50px;
+    color:#00ff88;
+    font-size:2rem;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:#161b22;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #30363d;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 0 20px rgba(0,255,136,.3);
+}
+
+.card h3{
+    color:#58a6ff;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    padding:30px;
+    background:#161b22;
+    color:#8b949e;
+}
+
+.matrix{
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    opacity:.08;
+}
+</style>
 </head>
 <body>
-    <h1>Hello World!</h1>
+
+<canvas class="matrix"></canvas>
+
+<header>
+    <h1 class="glow">VISWA</h1>
+    <h2>Cyber Security Engineer</h2>
+    <p>
+        Passionate about Cyber Security, SIEM, Wazuh, Threat Detection,
+        Incident Response, OpenTelemetry, Prometheus, Grafana, and Cloud Security.
+        Building secure infrastructures and protecting digital assets.
+    </p>
+    <a href="#skills" class="btn">Explore</a>
+</header>
+
+<section id="skills">
+    <h2 class="section-title">Skills</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Wazuh SIEM</h3>
+            <p>Threat detection, log analysis, compliance monitoring and incident response.</p>
+        </div>
+
+        <div class="card">
+            <h3>Cloud Security</h3>
+            <p>AWS monitoring, CloudTrail, CloudWatch and security best practices.</p>
+        </div>
+
+        <div class="card">
+            <h3>OpenTelemetry</h3>
+            <p>Distributed telemetry collection, observability and monitoring.</p>
+        </div>
+
+        <div class="card">
+            <h3>DevSecOps</h3>
+            <p>Secure CI/CD pipelines, automation and infrastructure hardening.</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2 class="section-title">Security Focus Areas</h2>
+
+    <div class="cards">
+        <div class="card">
+            <h3>Threat Hunting</h3>
+            <p>Detecting advanced threats using log analytics and correlation.</p>
+        </div>
+
+        <div class="card">
+            <h3>Incident Response</h3>
+            <p>Rapid investigation, containment and remediation of security incidents.</p>
+        </div>
+
+        <div class="card">
+            <h3>Monitoring</h3>
+            <p>Prometheus, Grafana and centralized observability solutions.</p>
+        </div>
+
+        <div class="card">
+            <h3>Security Automation</h3>
+            <p>Automating detection and response workflows for modern SOC teams.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 VISWA | Cyber Security Portfolio
+</footer>
+
+<script>
+const canvas = document.querySelector(".matrix");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const chars = "01";
+const fontSize = 14;
+const columns = canvas.width/fontSize;
+
+const drops = [];
+
+for(let x=0;x<columns;x++){
+    drops[x]=1;
+}
+
+function draw(){
+    ctx.fillStyle="rgba(13,17,23,0.08)";
+    ctx.fillRect(0,0,canvas.width,canvas.height);
+
+    ctx.fillStyle="#00ff88";
+    ctx.font=fontSize+"px monospace";
+
+    for(let i=0;i<drops.length;i++){
+        const text=chars[Math.floor(Math.random()*chars.length)];
+        ctx.fillText(text,i*fontSize,drops[i]*fontSize);
+
+        if(drops[i]*fontSize>canvas.height && Math.random()>0.975){
+            drops[i]=0;
+        }
+        drops[i]++;
+    }
+}
+
+setInterval(draw,35);
+</script>
+
 </body>
 </html>
